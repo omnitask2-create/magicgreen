@@ -3,465 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoVerde - Medio Ambiente y Paisajismo</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Palabras Sin Sentido</title>
     <style>
-        html {
-            scroll-behavior: smooth;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 50px;
         }
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(22, 101, 52, 0.9), rgba(34, 197, 94, 0.8)), 
-                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600') center/cover;
+        #lista-palabras {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-height: 100px;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
+        .palabra {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4ecdc4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45b7af;
         }
     </style>
 </head>
-<body class="font-sans">
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 bg-white/95 shadow-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-leaf text-green-600 text-3xl"></i>
-                    <span class="text-2xl font-bold text-green-800">EcoVerde</span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio" class="text-gray-700 hover:text-green-600 font-medium transition">Inicio</a>
-                    <a href="#servicios" class="text-gray-700 hover:text-green-600 font-medium transition">Servicios</a>
-                    <a href="#nosotros" class="text-gray-700 hover:text-green-600 font-medium transition">Nosotros</a>
-                    <a href="#proyectos" class="text-gray-700 hover:text-green-600 font-medium transition">Proyectos</a>
-                    <a href="#contacto" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">Contacto</a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden text-gray-700 text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <a href="#inicio" class="block py-2 text-gray-700 hover:text-green-600">Inicio</a>
-                <a href="#servicios" class="block py-2 text-gray-700 hover:text-green-600">Servicios</a>
-                <a href="#nosotros" class="block py-2 text-gray-700 hover:text-green-600">Nosotros</a>
-                <a href="#proyectos" class="block py-2 text-gray-700 hover:text-green-600">Proyectos</a>
-                <a href="#contacto" class="block py-2 text-gray-700 hover:text-green-600">Contacto</a>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-white">
-        <div class="text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                Transformamos Espacios<br>en Paraísos Verdes
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Expertos en diseño de paisajes, conservación ambiental y soluciones sostenibles para un mundo más verde.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#servicios" class="bg-white text-green-700 px-8 py-3 rounded-full font-semibold hover:bg-green-100 transition">
-                    Nuestros Servicios
-                </a>
-                <a href="#contacto" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-700 transition">
-                    Solicitar Presupuesto
-                </a>
-            </div>
-        </div>
-    </section>
+    <h1>Muro de Palabras Sin Sentido</h1>
+    
+    <div id="lista-palabras">
+        <p id="cargando">Cargando palabras...</p>
+    </div>
 
-    <!-- Services Section -->
-    <section id="servicios" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Ofrecemos soluciones integrales en paisajismo y medio ambiente para crear espacios únicos y sostenibles.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-tree text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Diseño de Jardines</h3>
-                    <p class="text-gray-600">Creamos jardines personalizados que combinan estética y funcionalidad, adaptados a tu espacio y estilo de vida.</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-water text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sistemas de Riego</h3>
-                    <p class="text-gray-600">Instalamos sistemas de riego eficientes y automatizados que optimizan el consumo de agua.</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-sun text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Energía Sostenible</h3>
-                    <p class="text-gray-600">Implementamos soluciones de iluminación solar y sistemas energéticos amigables con el medio ambiente.</p>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-                    <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-seedling text-emerald-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Restauración Ecológica</h3>
-                    <p class="text-gray-600">Recuperamos ecosistemas degradados mediante técnicas de reforestación y conservación de suelos.</p>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-drafting-compass text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Consultoría Ambiental</h3>
-                    <p class="text-gray-600">Asesoramos a empresas y particulares en prácticas sostenibles y cumplimiento de normativas ambientales.</p>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-white rounded-2xl shadow-lg p-8 transition-all duration-300">
-                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-tools text-teal-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Mantenimiento</h3>
-                    <p class="text-gray-600">Servicio integral de mantenimiento de jardines, áreas verdes y espacios naturales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="nosotros" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800" alt="Equipo trabajando" class="rounded-2xl shadow-xl w-full h-[500px] object-cover">
-                </div>
-                <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Sobre Nosotros</h2>
-                    <p class="text-gray-600 mb-6 text-lg">
-                        En <strong class="text-green-600">EcoVerde</strong> llevamos más de 15 años transformando espacios y cuidando del medio ambiente. Nuestro equipo de profesionales combina pasión por la naturaleza con experiencia técnica para crear soluciones paisajísticas excepcionales.
-                    </p>
-                    <p class="text-gray-600 mb-8 text-lg">
-                        Creemos en un futuro sostenible donde la armonía entre el ser humano y la naturaleza sea posible. Por eso, cada proyecto que realizamos está diseñado con respeto al entorno y compromiso con la conservación.
-                    </p>
-                    
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-green-600">500+</div>
-                            <div class="text-gray-600">Proyectos</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-green-600">15</div>
-                            <div class="text-gray-600">Años</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-green-600">98%</div>
-                            <div class="text-gray-600">Satisfacción</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="proyectos" class="py-20 bg-green-800">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">Proyectos Destacados</h2>
-                <p class="text-green-200 max-w-2xl mx-auto">Descubre algunos de nuestros trabajos más representativos.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group relative overflow-hidden rounded-2xl">
-                    <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600" alt="Jardín residencial" class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-                        <div>
-                            <h3 class="text-white font-bold text-xl">Jardín Residencial</h3>
-                            <p class="text-green-300">Diseño paisajístico</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-2xl">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600" alt="Parque urbano" class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-                        <div>
-                            <h3 class="text-white font-bold text-xl">Parque Urbano</h3>
-                            <p class="text-green-300">Espacio público</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-2xl">
-                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600" alt="Reforestación" class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-                        <div>
-                            <h3 class="text-white font-bold text-xl">Reforestación</h3>
-                            <p class="text-green-300">Conservación ambiental</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Contáctanos</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">¿Tienes un proyecto en mente? Escríbenos y te ayudaremos a hacerlo realidad.</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Contact Info -->
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800">Dirección</h3>
-                            <p class="text-gray-600">Av. Principal 123, Ciudad Verde<br>CP 12345</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-phone text-green-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800">Teléfono</h3>
-                            <p class="text-gray-600">+34 123 456 789</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-envelope text-green-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800">Email</h3>
-                            <p class="text-gray-600">info@ecoverde.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-clock text-green-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800">Horario</h3>
-                            <p class="text-gray-600">Lun - Vie: 9:00 - 18:00<br>Sáb: 9:00 - 14:00</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Social Media -->
-                    <div class="flex space-x-4 pt-4">
-                        <a href="#" class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div class="bg-white rounded-2xl shadow-xl p-8">
-                    <form id="contactForm" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-2">Nombre *</label>
-                                <input type="text" name="nombre" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition" placeholder="Tu nombre">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-2">Teléfono</label>
-                                <input type="tel" name="telefono" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition" placeholder="Tu teléfono">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-medium mb-2">Email *</label>
-                            <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition" placeholder="tu@email.com">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-medium mb-2">Servicio de interés</label>
-                            <select name="servicio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition">
-                                <option value="">Selecciona un servicio</option>
-                                <option value="diseno">Diseño de Jardines</option>
-                                <option value="riego">Sistemas de Riego</option>
-                                <option value="energia">Energía Sostenible</option>
-                                <option value="restauracion">Restauración Ecológica</option>
-                                <option value="consultoria">Consultoría Ambiental</option>
-                                <option value="mantenimiento">Mantenimiento</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-medium mb-2">Mensaje *</label>
-                            <textarea name="mensaje" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-lg font-semibold hover:bg-green-700 transition flex items-center justify-center space-x-2">
-                            <span>Enviar Mensaje</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                    
-                    <!-- Success Message -->
-                    <div id="successMessage" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
-                        <i class="fas fa-check-circle text-2xl mb-2"></i>
-                        <p class="font-semibold">¡Mensaje enviado con éxito!</p>
-                        <p>Nos pondremos en contacto contigo pronto.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-leaf text-green-500 text-2xl"></i>
-                        <span class="text-xl font-bold">EcoVerde</span>
-                    </div>
-                    <p class="text-gray-400">Transformando espacios en paraísos verdes desde 2009.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Enlaces</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#inicio" class="hover:text-green-500 transition">Inicio</a></li>
-                        <li><a href="#servicios" class="hover:text-green-500 transition">Servicios</a></li>
-                        <li><a href="#nosotros" class="hover:text-green-500 transition">Nosotros</a></li>
-                        <li><a href="#contacto" class="hover:text-green-500 transition">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Servicios</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Diseño de Jardines</li>
-                        <li>Sistemas de Riego</li>
-                        <li>Consultoría Ambiental</li>
-                        <li>Mantenimiento</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
-                    <p class="text-gray-400 mb-4">Suscríbete para recibir consejos de jardinería.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Tu email" class="px-4 py-2 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-green-500 flex-grow">
-                        <button class="bg-green-600 px-4 py-2 rounded-r-lg hover:bg-green-700 transition">
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 EcoVerde. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <h2>¿Quieres poner la tuya?</h2>
+    <form id="formulario">
+        <input type="text" id="nueva-palabra" placeholder="Escribe algo raro aquí..." required autocomplete="off">
+        <button type="submit" id="boton-enviar">Guardar palabra</button>
+    </form>
 
     <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        // PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ:
+        const SCRIPT_URL = 'AQUI_PEGA_TU_URL_DE_GOOGLE_APPS_SCRIPT';
         
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = menuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
+        const contenedorPalabras = document.getElementById('lista-palabras');
+        const formulario = document.getElementById('formulario');
+        const inputPalabra = document.getElementById('nueva-palabra');
+        const botonEnviar = document.getElementById('boton-enviar');
 
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                const icon = menuBtn.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
-
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Simulate form submission
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                successMessage.classList.remove('hidden');
+        // Función para leer las palabras del Excel al cargar la página
+        async function cargarPalabras() {
+            try {
+                const response = await fetch(SCRIPT_URL);
+                const palabras = await response.json();
                 
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                }, 5000);
-            }, 1500);
-        });
+                contenedorPalabras.innerHTML = ''; // Limpiar el "cargando"
+                
+                if (palabras.length === 0) {
+                    contenedorPalabras.innerHTML = '<p>Aún no hay palabras. ¡Sé el primero!</p>';
+                    return;
+                }
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
+                palabras.forEach(palabra => {
+                    const span = document.createElement('span');
+                    span.className = 'palabra';
+                    span.textContent = palabra;
+                    contenedorPalabras.appendChild(span);
+                });
+            } catch (error) {
+                contenedorPalabras.innerHTML = '<p>Error al cargar las palabras.</p>';
+                console.error('Error:', error);
+            }
+        }
+
+        // Función para guardar una nueva palabra en el Excel
+        formulario.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evitar que la página se recargue
+            const palabraText = inputPalabra.value.trim();
+            
+            if(!palabraText) return;
+
+            // Cambiar el botón para mostrar que está pensando
+            botonEnviar.textContent = "Guardando...";
+            botonEnviar.disabled = true;
+
+            const formData = new FormData();
+            formData.append('palabra', palabraText);
+
+            try {
+                // Enviamos los datos al Google Apps Script
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Limpiamos el input y recargamos la lista visualmente
+                inputPalabra.value = '';
+                await cargarPalabras();
+            } catch (error) {
+                alert("Hubo un error al guardar la palabra.");
+            } finally {
+                botonEnviar.textContent = "Guardar palabra";
+                botonEnviar.disabled = false;
             }
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // Ejecutar la carga de palabras cuando la página inicie
+        cargarPalabras();
     </script>
 </body>
 </html>
